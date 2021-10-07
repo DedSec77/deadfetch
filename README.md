@@ -16,5 +16,5 @@ First what you need its python<br/>
     sudo pacman -S python3 python-pip<br/>
     chmod +x install_arch.sh<br/>
 <br/>
-
+# Final
 ![Снимок экрана от 2021-10-07 23-20-48](https://user-images.githubusercontent.com/55799553/136444343-20bccb2f-0ee3-4086-abd1-9a22ceb6df5f.png)
