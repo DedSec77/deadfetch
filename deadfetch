@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+import cpuinfo
+from colorama import Fore
+import platform
+import psutil
+import os
+import distro
+import acs
+acsiiart = ""
+reset = Fore.RESET
+def infoCollect():
+    if distro.linux_distribution()[0].lower() == "fedora":
+        acsiiart = acs.fedora
+        color = Fore.CYAN
+    elif "windows" in distro.linux_distribution()[0].lower():
+        acsiiart = acs.windows
+        color = Fore.RED
+    elif "redhat" in distro.linux_distribution()[0].lower():
+        acsiiart = acs.redhat
+        color = Fore.RED
+    elif "ubuntu" in distro.linux_distribution()[0].lower():
+        acsiiart = acs.ubuntu
+        color = Fore.YELLOW
+    elif "debian" in distro.linux_distribution()[0].lower():
+                acsiiart = acs.debian
+                color = Fore.RED
+    elif "arch" in distro.linux_distribution()[0].lower():
+                acsiiart = acs.arch
+                color = Fore.RED
+    elif "gentoo" in distro.linux_distribution()[0].lower():
+        acsiiart = acs.gentoo
+        color = Fore.MAGENTA
+    else:
+        acsiiart = acs.computer1
+        color = Fore.MAGENTA
+
+    shell = os.environ['SHELL'].replace("/usr/bin/", "")
+    proc = cpuinfo.get_cpu_info()
+    ram = str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
+    print(
+acsiiart + "\n" +
+"           " + Fore.CYAN + os.environ['USER']+ "@" +distro.linux_distribution()[0] + Fore.RESET +
+"\n            ---------" +
+color + "\nCPU: " + reset +proc["brand_raw"] +
+color +"\nBit: " + reset + proc["arch_string_raw"] +
+color +"\nSystem: " + reset + platform.system() +
+color +"\nDistro: " + reset +distro.linux_distribution()[0] +
+color +"\nShell: " + reset +shell +
+color +"\nRam: " + reset +ram +
+color +"\nWm: " + reset + os.environ['XDG_CURRENT_DESKTOP'] + ", " + os.environ['DESKTOP_SESSION'] +
+color +"\nTerminal: " + reset +os.environ["TERM"]
+    )
+
+infoCollect()
