@@ -31,18 +31,21 @@ def infoCollect():
                 color = Fore.RED
     elif "arch" in Variables.distr.lower():
                 acsiiart = acs.arch
-                color = Fore.RED
+                color = Fore.CYAN
     elif "gentoo" in Variables.distr.lower():
         acsiiart = acs.gentoo
         color = Fore.MAGENTA
     elif "macos" or "os x" in platform.system().lower():
         acsiiart = acs.apple
         color = Fore.GREEN
+    elif "raspbian" in Variables.distr.lower():
+        acsiiart = acs.raspberry
+        color = Fore.RED
 
     def Prints():
         if "linux" in platform.system().lower():
+                print(acsiiart, "\n")
                 print(
-            acsiiart + "\n" +
             "           " + color + Variables.User + "@" + Variables.distr + reset +
             "\n            ---------" +
             color + "\nCPU: " + reset + Variables.CPU +

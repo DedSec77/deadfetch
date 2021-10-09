@@ -1,5 +1,5 @@
 from colorama import Fore
-computer1 = r"""
+computer1 = """
                        .,,uod8B8bou,,.
               ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
          ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||
@@ -216,4 +216,17 @@ apple = Fore.GREEN + """
      :         :
       :         `-;
        `.__.-.__.'
+""" + Fore.RESET
+
+raspberry = Fore.GREEN + r"""
+   .~~.   .~~.
+   '. \ ' ' / .
+ """ + Fore.RED + """
+   .~ .~~~..~.
+  : .~.'~'.~. :
+ ~ (   ) (   ) ~
+( : '~'.~.'~' : )
+ ~ .~ (   ) ~. ~
+  (  : '~' :  )
+   '~ .~~~. ~'
 """ + Fore.RESET
