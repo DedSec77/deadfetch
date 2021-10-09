@@ -229,7 +229,7 @@ yMMNNNNNNNmmmmmNNMmhs+/-`
   `-//////:--.
 """ + Fore.RESET
 
-apple = Fore.GREEN + """
+apple =  """
             .:'
          __ :'__
       .'`  `-'  ``.
@@ -237,7 +237,12 @@ apple = Fore.GREEN + """
      :         :
       :         `-;
        `.__.-.__.'
-""" + Fore.RESET
+"""
+
+
+
+
+# Сука ты коннченая, козлина ты ебанныая, ты сука сучара блять
 
 raspberry = Fore.GREEN + r"""
    .~~.   .~~.

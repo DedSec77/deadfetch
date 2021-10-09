@@ -35,16 +35,16 @@ def infoCollect():
     elif "gentoo" in Variables.distr.lower():
         acsiiart = acs.gentoo
         color = Fore.MAGENTA
-    elif "macos" or "os x" in platform.system().lower():
+    elif  platform.system().lower() == "macos" or "os x":
         acsiiart = acs.apple
         color = Fore.GREEN
-    elif "raspbian" in Variables.distr.lower():
+    elif Variables.distr.lower() == "raspbian gnu/linux":
         acsiiart = acs.raspberry
         color = Fore.RED
 
     def Prints():
         if "linux" in platform.system().lower():
-                print(acsiiart, "\n")
+                print(acsiiart)
                 print(
             "           " + color + Variables.User + "@" + Variables.distr + reset +
             "\n            ---------" +
@@ -60,13 +60,10 @@ def infoCollect():
         elif "windows" in platform.system().lower():
                 print(
             acsiiart + "\n" +
-            "           " + color + Variables.User + reset +
-            "\n            ---------" +
             color + "\nCPU: " + reset + Variables.CPU +
             color +"\nBit: " + reset + Variables.Bit +
             color +"\nSystem: " + reset + platform.system() +
             color +"\nRam: " + reset + Variables.ram +
-            color +"\nTerminal: " + reset + Variables.term
                 )
         elif "os x" or "macos" or "mac os" in platform.system().lower():
                 print(
