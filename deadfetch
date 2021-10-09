@@ -27,15 +27,18 @@ def infoCollect():
         acsiiart = acs.ubuntu
         color = Fore.YELLOW
     elif "debian" in Variables.distr.lower():
-                acsiiart = acs.debian
-                color = Fore.RED
+        acsiiart = acs.debian
+        color = Fore.RED
     elif "arch" in Variables.distr.lower():
-                acsiiart = acs.arch
-                color = Fore.CYAN
+        acsiiart = acs.arch
+        color = Fore.CYAN
     elif "gentoo" in Variables.distr.lower():
         acsiiart = acs.gentoo
         color = Fore.MAGENTA
-    elif  platform.system().lower() == "macos" or "os x":
+    elif  platform.system().lower() == "macos":
+        acsiiart = acs.apple
+        color = Fore.GREEN
+    elif  platform.system().lower() == "os x":
         acsiiart = acs.apple
         color = Fore.GREEN
     elif Variables.distr.lower() == "raspbian gnu/linux":
@@ -63,7 +66,7 @@ def infoCollect():
             color + "\nCPU: " + reset + Variables.CPU +
             color +"\nBit: " + reset + Variables.Bit +
             color +"\nSystem: " + reset + platform.system() +
-            color +"\nRam: " + reset + Variables.ram 
+            color +"\nRam: " + reset + Variables.ram
                 )
         elif "os x" or "macos" or "mac os" in platform.system().lower():
                 print(
