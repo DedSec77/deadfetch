@@ -15,11 +15,9 @@ reset = Fore.RESET
 def infoCollect():
     if Variables.distr.lower() == "fedora":
         acsiiart = acs.fedora
-        color = Fore.CYAN
+        color = Fore.BLUE
     elif "windows" in platform.system().lower():
         acsiiart = acs.windows
-        color = Fore.RED
-        Variables.distr = ""
     elif "redhat" in Variables.distr.lower():
         acsiiart = acs.redhat
         color = Fore.RED
