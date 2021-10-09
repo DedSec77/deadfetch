@@ -63,7 +63,7 @@ def infoCollect():
             color + "\nCPU: " + reset + Variables.CPU +
             color +"\nBit: " + reset + Variables.Bit +
             color +"\nSystem: " + reset + platform.system() +
-            color +"\nRam: " + reset + Variables.ram +
+            color +"\nRam: " + reset + Variables.ram 
                 )
         elif "os x" or "macos" or "mac os" in platform.system().lower():
                 print(
