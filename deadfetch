@@ -42,7 +42,9 @@ def infoCollect():
     elif Variables.distr.lower() == "raspbian gnu/linux":
         acsiiart = acs.raspberry
         color = Fore.RED
-
+    elif platform.system().lower() == "darwin":
+                acsiiart = acs.apple
+                color = Fore.GREEN
     def Prints():
         if "linux" in platform.system().lower():
                 print(acsiiart)
@@ -66,7 +68,7 @@ def infoCollect():
             color +"\nSystem: " + reset + platform.system() +
             color +"\nRam: " + reset + Variables.ram
                 )
-        elif "os x" or "macos" or "mac os" in platform.system().lower():
+            elif "os x" or "macos" or "mac os" or "darwin" in platform.system().lower():
                 print(
             acsiiart + "\n" +
             "           " + color + Variables.User + "@" + platform.system() + reset +
