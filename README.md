@@ -19,7 +19,7 @@ First what you need its python<br/>
 <h1>Other</h1>
 <br/>
 pip install -r requirements.txt
-<br/>
+
 # Final
 <br/>
 
