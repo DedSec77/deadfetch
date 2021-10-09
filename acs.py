@@ -1,5 +1,5 @@
 from colorama import Fore
-computer1 = """
+computer1 = r"""
                        .,,uod8B8bou,,.
               ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
          ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||
