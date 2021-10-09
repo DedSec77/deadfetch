@@ -16,7 +16,10 @@ First what you need its python<br/>
     sudo pacman -S python3 python-pip<br/>
     chmod +x install_arch.sh<br/>
 <br/>
-
+<h1>Other</h1>
+<br/>
+pip install -r requirements.txt
+<br/>
 # Final
 <br/>
 
