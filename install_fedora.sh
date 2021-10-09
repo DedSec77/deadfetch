@@ -6,3 +6,6 @@ sudo chmod +x deadfetch
 sudo chmod +x acs.py
 sudo cp deadfetch /bin
 sudo cp acs.py /bin
+sudo chmod +x osinfo.py
+sudo cp osinfo.py /usr/bin
+echo "Ready!"

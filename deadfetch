@@ -6,49 +6,78 @@ import psutil
 import os
 import distro
 import acs
+from osinfo import Variables
 acsiiart = ""
+
+
+
 reset = Fore.RESET
 def infoCollect():
-    if distro.linux_distribution()[0].lower() == "fedora":
+    if Variables.distr.lower() == "fedora":
         acsiiart = acs.fedora
         color = Fore.CYAN
-    elif "windows" in distro.linux_distribution()[0].lower():
+    elif "windows" in platform.system().lower():
         acsiiart = acs.windows
         color = Fore.RED
-    elif "redhat" in distro.linux_distribution()[0].lower():
+        Variables.distr = ""
+    elif "redhat" in Variables.distr.lower():
         acsiiart = acs.redhat
         color = Fore.RED
-    elif "ubuntu" in distro.linux_distribution()[0].lower():
+    elif "ubuntu" in Variables.distr.lower():
         acsiiart = acs.ubuntu
         color = Fore.YELLOW
-    elif "debian" in distro.linux_distribution()[0].lower():
+    elif "debian" in Variables.distr.lower():
                 acsiiart = acs.debian
                 color = Fore.RED
-    elif "arch" in distro.linux_distribution()[0].lower():
+    elif "arch" in Variables.distr.lower():
                 acsiiart = acs.arch
                 color = Fore.RED
-    elif "gentoo" in distro.linux_distribution()[0].lower():
+    elif "gentoo" in Variables.distr.lower():
         acsiiart = acs.gentoo
         color = Fore.MAGENTA
-    else:
-        acsiiart = acs.computer1
-        color = Fore.MAGENTA
+    elif "macos" or "os x" in platform.system().lower():
+        acsiiart = acs.apple
+        color = Fore.GREEN
 
-    shell = os.environ['SHELL'].replace("/usr/bin/", "")
-    proc = cpuinfo.get_cpu_info()
-    ram = str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
-    print(
-acsiiart + "\n" +
-"           " + Fore.CYAN + os.environ['USER']+ "@" +distro.linux_distribution()[0] + Fore.RESET +
-"\n            ---------" +
-color + "\nCPU: " + reset +proc["brand_raw"] +
-color +"\nBit: " + reset + proc["arch_string_raw"] +
-color +"\nSystem: " + reset + platform.system() +
-color +"\nDistro: " + reset +distro.linux_distribution()[0] +
-color +"\nShell: " + reset +shell +
-color +"\nRam: " + reset +ram +
-color +"\nWm: " + reset + os.environ['XDG_CURRENT_DESKTOP'] + ", " + os.environ['DESKTOP_SESSION'] +
-color +"\nTerminal: " + reset +os.environ["TERM"]
-    )
+    def Prints():
+        if "linux" in platform.system().lower():
+                print(
+            acsiiart + "\n" +
+            "           " + color + Variables.User + "@" + Variables.distr + reset +
+            "\n            ---------" +
+            color + "\nCPU: " + reset + Variables.CPU +
+            color +"\nBit: " + reset + Variables.Bit +
+            color +"\nSystem: " + reset + platform.system() +
+            color +"\nDistro: " + reset +  Variables.distr +
+            color +"\nShell: " + reset + Variables.shell +
+            color +"\nRam: " + reset + Variables.ram +
+            color +"\nWm: " + reset + Variables.GUI +
+            color +"\nTerminal: " + reset + Variables.term
+                )
+        elif "windows" in platform.system().lower():
+                print(
+            acsiiart + "\n" +
+            "           " + color + Variables.User + reset +
+            "\n            ---------" +
+            color + "\nCPU: " + reset + Variables.CPU +
+            color +"\nBit: " + reset + Variables.Bit +
+            color +"\nSystem: " + reset + platform.system() +
+            color +"\nRam: " + reset + Variables.ram +
+            color +"\nTerminal: " + reset + Variables.term
+                )
+        elif "os x" or "macos" or "mac os" in platform.system().lower():
+                print(
+            acsiiart + "\n" +
+            "           " + color + Variables.User + "@" + platform.system() + reset +
+            "\n            ---------" +
+            color + "\nCPU: " + reset + Variables.CPU +
+            color +"\nBit: " + reset + Variables.Bit +
+            color +"\nSystem: " + reset + platform.system() +
+            color +"\nShell: " + reset + Variables.shell +
+            color +"\nRam: " + reset + Variables.ram +
+            color +"\nTerminal: " + reset + Variables.term
+                )
+
+    Prints()
 
 infoCollect()

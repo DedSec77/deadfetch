@@ -207,3 +207,13 @@ yMMNNNNNNNmmmmmNNMmhs+/-`
 `/ohdmmddhys+++/:.`
   `-//////:--.
 """ + Fore.RESET
+
+apple = Fore.GREEN + """
+            .:'
+         __ :'__
+      .'`  `-'  ``.
+     :          .-'
+     :         :
+      :         `-;
+       `.__.-.__.'
+""" + Fore.RESET
