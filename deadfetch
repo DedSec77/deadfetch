@@ -63,10 +63,10 @@ def infoCollect():
         elif "windows" in platform.system().lower():
                 print(
             acsiiart + "\n" +
-            color + "\nCPU: " + reset + Variables.CPU +
-            color +"\nBit: " + reset + Variables.Bit +
-            color +"\nSystem: " + reset + platform.system() +
-            color +"\nRam: " + reset + Variables.ram
+            "\nCPU: " + Variables.CPU +
+            "\nBit: " + Variables.Bit +
+            "\nSystem: " + platform.system() +
+            "\nRam: " + Variables.ram
                 )
         elif "os x" or "macos" or "mac os" or "darwin" in platform.system().lower():
                 print(
