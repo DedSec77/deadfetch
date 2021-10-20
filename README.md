@@ -24,3 +24,9 @@ pip install -r requirements.txt
 <br/>
 
 ![Снимок экрана от 2021-10-07 23-20-48](https://user-images.githubusercontent.com/55799553/136444343-20bccb2f-0ee3-4086-abd1-9a22ceb6df5f.png)
+<br/>
+![unknown](https://cdn.discordapp.com/attachments/898278432327225371/900341302900719616/unknown.png)
+<br/>
+![unknown2](https://cdn.discordapp.com/attachments/896433730657329205/896433878628171817/unknown.png)
+<br/>
+![20211009_202243](https://cdn.discordapp.com/attachments/896433730657329205/896450273487241256/20211009_202243.png)
