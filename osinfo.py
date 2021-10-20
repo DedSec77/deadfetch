@@ -8,44 +8,44 @@ import distro
 class Variables():
     try:
         shell = os.environ['SHELL'].replace("/usr/bin/", "")
-    except Exception as shell:
-        shell = ""
+    except:
+        shell = "Unknown"
         pass
     try:
         proc = cpuinfo.get_cpu_info()
         CPU = proc["brand_raw"]
-    except Exception as CPU:
-        CPU = ""
+    except:
+        CPU = "Unknown"
         pass
     try:
         proc = cpuinfo.get_cpu_info()
         Bit = proc["arch_string_raw"]
-    except Exception as Bit:
-        Bit = ""
+    except:
+        Bit = "Unknown"
         pass
     try:
         ram = str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
-    except Exception as ram:
-        ram = ""
+    except:
+        ram = "Unknown"
         pass
     try:
         User = os.environ['USER']
-    except Exception as User:
+    except:
         pass
-        User = ""
+        User = "Unknown"
     try:
         distr = distro.linux_distribution()[0]
-    except Exception as distr:
-        distr = ""
+    except:
+        distr = "Unknown"
         pass
     try:
         if os.environ['XDG_CURRENT_DESKTOP'] and os.environ['DESKTOP_SESSION']:
             GUI = os.environ['XDG_CURRENT_DESKTOP'] +  ", " + os.environ['DESKTOP_SESSION']
-    except Exception as GUI:
-        GUI = ""
+    except:
+        GUI = "Unknown"
         pass
     try:
         term = os.environ["TERM"]
-    except Exception as term:
-        term = ""
+    except:
+        term = "Unknown"
         pass
