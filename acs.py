@@ -164,6 +164,27 @@ debian = Fore.RED + r"""
            ~~~~~
 """ + Fore.RESET
 
+popos = Fore.BLUE + f"""
+             /////////////
+         /////////////////////
+      ///////{Fore.WHITE}*767{Fore.BLUE}////////////////
+    //////{Fore.WHITE}7676767676*{Fore.BLUE}//////////////
+   /////{Fore.WHITE}76767{Fore.BLUE}//{Fore.WHITE}7676767{Fore.BLUE}//////////////
+  /////{Fore.WHITE}767676{Fore.BLUE}///{Fore.WHITE}*76767{Fore.BLUE}///////////////
+ ///////{Fore.WHITE}767676{Fore.BLUE}///{Fore.WHITE}76767.{Fore.BLUE}///{Fore.WHITE}7676*{Fore.BLUE}///////
+/////////{Fore.WHITE}767676{Fore.BLUE}//{Fore.WHITE}76767{Fore.BLUE}///{Fore.WHITE}767676{Fore.BLUE}////////
+//////////{Fore.WHITE}76767676767{Fore.BLUE}////{Fore.WHITE}76767{Fore.BLUE}/////////
+///////////{Fore.WHITE}76767676{Fore.BLUE}//////{Fore.WHITE}7676{Fore.BLUE}//////////
+////////////{Fore.WHITE},7676,{Fore.BLUE}///////{Fore.WHITE}767{Fore.BLUE}///////////
+/////////////{Fore.WHITE}*7676{Fore.BLUE}///////{Fore.WHITE}76{Fore.BLUE}////////////
+///////////////{Fore.WHITE}7676{Fore.BLUE}////////////////////
+ ///////////////{Fore.WHITE}7676///{Fore.WHITE}767{Fore.BLUE}////////////
+  //////////////////////{Fore.WHITE}'{Fore.BLUE}////////////
+   //////{Fore.WHITE}.7676767676767676767,{Fore.BLUE}//////
+    /////{Fore.WHITE}767676767676767676767{Fore.BLUE}/////
+      ///////////////////////////
+         /////////////////////
+             /////////////"""
 
 arch = Fore.CYAN + """
                    ▄

@@ -7,84 +7,85 @@ import os
 import distro
 import acs
 from osinfo import Variables
-acsiiart = ""
 
-color = Fore.BLUE
+global asciiart
+asciiart = ""
+
 reset = Fore.RESET
 
 if "windows" in platform.system().lower():
     init(convert=True)
 
-def infoCollect():
-    if "fedora" in Variables.distr.lower():
-        acsiiart = acs.fedora
-        color = Fore.BLUE
-    elif "windows" in platform.system().lower():
-        acsiiart = acs.windows
-    elif "redhat" in Variables.distr.lower():
-        acsiiart = acs.redhat
-        color = Fore.RED
-    elif "ubuntu" in Variables.distr.lower():
-        acsiiart = acs.ubuntu
-        color = Fore.YELLOW
-    elif "debian" in Variables.distr.lower():
-        acsiiart = acs.debian
-        color = Fore.RED
-    elif "arch" in Variables.distr.lower():
-        acsiiart = acs.arch
-        color = Fore.CYAN
-    elif "gentoo" in Variables.distr.lower():
-        acsiiart = acs.gentoo
-        color = Fore.MAGENTA
-    elif  platform.system().lower() == "macos":
-        acsiiart = acs.apple
-        color = Fore.GREEN
-    elif  platform.system().lower() == "os x":
-        acsiiart = acs.apple
-        color = Fore.GREEN
-    elif Variables.distr.lower() == "raspbian gnu/linux":
-        acsiiart = acs.raspberry
-        color = Fore.RED
-    elif platform.system().lower() == "darwin":
-                acsiiart = acs.apple
-                color = Fore.GREEN
-        
-def printInfo():
-    if "linux" in platform.system().lower():
-            print(acsiiart)
-            print(
-        "           " + color + Variables.User + "@" + Variables.distr + reset +
-        "\n            ---------" +
-        color + "\nCPU: " + reset + Variables.CPU +
-        color +"\nBit: " + reset + Variables.Bit +
-        color +"\nSystem: " + reset + platform.system() +
-        color +"\nDistro: " + reset +  Variables.distr +
-        color +"\nShell: " + reset + Variables.shell +
-        color +"\nRam: " + reset + Variables.ram +
-        color +"\nWm: " + reset + Variables.GUI +
-        color +"\nTerminal: " + reset + Variables.term
-            )
-    elif "windows" in platform.system().lower():
-            print(
-        acsiiart + "\n" +
-        "\nCPU: " + Variables.CPU +
-        "\nBit: " + Variables.Bit +
-        "\nSystem: " + platform.system() +
-        "\nRam: " + Variables.ram
-            )
-    elif "os x" or "macos" or "mac os" or "darwin" in platform.system().lower():
-            print(
-        acsiiart + "\n" +
-        "           " + color + Variables.User + "@" + platform.system() + reset +
-        "\n            ---------" +
-        color + "\nCPU: " + reset + Variables.CPU +
-        color +"\nBit: " + reset + Variables.Bit +
-        color +"\nSystem: " + reset + platform.system() +
-        color +"\nShell: " + reset + Variables.shell +
-        color +"\nRam: " + reset + Variables.ram +
-        color +"\nTerminal: " + reset + Variables.term
-            )
 
+if "fedora" in Variables.distr.lower():
+    asciiart = acs.fedora
+    color = Fore.BLUE
+elif "windows" in platform.system().lower():
+    asciiart = acs.windows
+elif "redhat" in Variables.distr.lower():
+    asciiart = acs.redhat
+    color = Fore.RED
+elif "ubuntu" in Variables.distr.lower():
+    asciiart = acs.ubuntu
+    color = Fore.YELLOW
+elif "debian" in Variables.distr.lower():
+    asciiart = acs.debian
+    color = Fore.RED
+elif "arch" in Variables.distr.lower():
+    asciiart = acs.arch
+    color = Fore.CYAN
+elif "gentoo" in Variables.distr.lower():
+    asciiart = acs.gentoo
+    color = Fore.MAGENTA
+elif "pop!_os" in Variables.distr.lower():
+    asciiart = acs.popos
+    color = Fore.BLUE
+elif  platform.system().lower() == "macos":
+    asciiart = acs.apple
+    color = Fore.GREEN
+elif  platform.system().lower() == "os x":
+    asciiart = acs.apple
+    color = Fore.GREEN
+elif Variables.distr.lower() == "raspbian gnu/linux":
+    asciiart = acs.raspberry
+    color = Fore.RED
+elif platform.system().lower() == "darwin":
+            acsiiart = acs.apple
+            color = Fore.GREEN
 
-infoCollect()
-printInfo()
+# print
+
+if "linux" in platform.system().lower():
+        print(asciiart)
+        print(
+    "           " + color + Variables.User + "@" + Variables.distr + reset +
+    "\n            ---------" +
+    color + "\nCPU: " + reset + Variables.CPU +
+    color +"\nBit: " + reset + Variables.Bit +
+    color +"\nSystem: " + reset + platform.system() +
+    color +"\nDistro: " + reset +  Variables.distr +
+    color +"\nShell: " + reset + Variables.shell +
+    color +"\nRam: " + reset + Variables.ram +
+    color +"\nWm: " + reset + Variables.GUI +
+    color +"\nTerminal: " + reset + Variables.term
+        )
+elif "windows" in platform.system().lower():
+        print(
+    asciiart + "\n" +
+    "\nCPU: " + Variables.CPU +
+    "\nBit: " + Variables.Bit +
+    "\nSystem: " + platform.system() +
+    "\nRam: " + Variables.ram
+        )
+elif "os x" or "macos" or "mac os" or "darwin" in platform.system().lower():
+        print(
+    asciiart + "\n" +
+    "           " + color + Variables.User + "@" + platform.system() + reset +
+    "\n            ---------" +
+    color + "\nCPU: " + reset + Variables.CPU +
+    color +"\nBit: " + reset + Variables.Bit +
+    color +"\nSystem: " + reset + platform.system() +
+    color +"\nShell: " + reset + Variables.shell +
+    color +"\nRam: " + reset + Variables.ram +
+    color +"\nTerminal: " + reset + Variables.term
+        )
