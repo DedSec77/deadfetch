@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import cpuinfo
-from colorama import Fore
+from colorama import Fore, init
 import platform
 import psutil
 import os
@@ -9,9 +9,12 @@ import acs
 from osinfo import Variables
 acsiiart = ""
 
-
-
+color = Fore.BLUE
 reset = Fore.RESET
+
+if "windows" in platform.system().lower():
+    init(convert=True)
+
 def infoCollect():
     if Variables.distr.lower() == "fedora":
         acsiiart = acs.fedora
@@ -45,42 +48,43 @@ def infoCollect():
     elif platform.system().lower() == "darwin":
                 acsiiart = acs.apple
                 color = Fore.GREEN
-    def Prints():
-        if "linux" in platform.system().lower():
-                print(acsiiart)
-                print(
-            "           " + color + Variables.User + "@" + Variables.distr + reset +
-            "\n            ---------" +
-            color + "\nCPU: " + reset + Variables.CPU +
-            color +"\nBit: " + reset + Variables.Bit +
-            color +"\nSystem: " + reset + platform.system() +
-            color +"\nDistro: " + reset +  Variables.distr +
-            color +"\nShell: " + reset + Variables.shell +
-            color +"\nRam: " + reset + Variables.ram +
-            color +"\nWm: " + reset + Variables.GUI +
-            color +"\nTerminal: " + reset + Variables.term
-                )
-        elif "windows" in platform.system().lower():
-                print(
-            acsiiart + "\n" +
-            "\nCPU: " + Variables.CPU +
-            "\nBit: " + Variables.Bit +
-            "\nSystem: " + platform.system() +
-            "\nRam: " + Variables.ram
-                )
-        elif "os x" or "macos" or "mac os" or "darwin" in platform.system().lower():
-                print(
-            acsiiart + "\n" +
-            "           " + color + Variables.User + "@" + platform.system() + reset +
-            "\n            ---------" +
-            color + "\nCPU: " + reset + Variables.CPU +
-            color +"\nBit: " + reset + Variables.Bit +
-            color +"\nSystem: " + reset + platform.system() +
-            color +"\nShell: " + reset + Variables.shell +
-            color +"\nRam: " + reset + Variables.ram +
-            color +"\nTerminal: " + reset + Variables.term
-                )
+        
+def printInfo():
+    if "linux" in platform.system().lower():
+            print(acsiiart)
+            print(
+        "           " + color + Variables.User + "@" + Variables.distr + reset +
+        "\n            ---------" +
+        color + "\nCPU: " + reset + Variables.CPU +
+        color +"\nBit: " + reset + Variables.Bit +
+        color +"\nSystem: " + reset + platform.system() +
+        color +"\nDistro: " + reset +  Variables.distr +
+        color +"\nShell: " + reset + Variables.shell +
+        color +"\nRam: " + reset + Variables.ram +
+        color +"\nWm: " + reset + Variables.GUI +
+        color +"\nTerminal: " + reset + Variables.term
+            )
+    elif "windows" in platform.system().lower():
+            print(
+        acsiiart + "\n" +
+        "\nCPU: " + Variables.CPU +
+        "\nBit: " + Variables.Bit +
+        "\nSystem: " + platform.system() +
+        "\nRam: " + Variables.ram
+            )
+    elif "os x" or "macos" or "mac os" or "darwin" in platform.system().lower():
+            print(
+        acsiiart + "\n" +
+        "           " + color + Variables.User + "@" + platform.system() + reset +
+        "\n            ---------" +
+        color + "\nCPU: " + reset + Variables.CPU +
+        color +"\nBit: " + reset + Variables.Bit +
+        color +"\nSystem: " + reset + platform.system() +
+        color +"\nShell: " + reset + Variables.shell +
+        color +"\nRam: " + reset + Variables.ram +
+        color +"\nTerminal: " + reset + Variables.term
+            )
 
-    Prints()
 
 infoCollect()
+printInfo()
