@@ -71,7 +71,7 @@ if "linux" in platform.system().lower():
         )
 elif "windows" in platform.system().lower():
         print(
-    acsiiart + "\n" +
+    asciiart + "\n" +
     "\nCPU: " + Variables.CPU +
     "\nBit: " + Variables.Bit +
     "\nSystem: " + platform.system() +
@@ -79,7 +79,7 @@ elif "windows" in platform.system().lower():
         )
 elif "os x" or "macos" or "mac os" or "darwin" in platform.system().lower():
         print(
-    acsiiart + "\n" +
+    asciiart + "\n" +
     "           " + color + Variables.User + "@" + platform.system() + reset +
     "\n            ---------" +
     color + "\nCPU: " + reset + Variables.CPU +
