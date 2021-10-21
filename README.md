@@ -1,5 +1,11 @@
 # deadfetch
-This is my fetch, with acsii arts from neofetch and internet 
+This is my fetch, with ascii arts from neofetch and internet
+# Authors
+<br/>
+<a href=""https://github.com/DedSec77>DedSec77</a> Made a repository
+<br/>
+<a href="https://github.com/Butterfly13377">Butterfly</a> Fixed a lot of bugs 
+
 # Installation
 First what you need its python<br/>
 <h2>Fedora</h2><br/>
