@@ -16,7 +16,7 @@ if "windows" in platform.system().lower():
     init(convert=True)
 
 def infoCollect():
-    if Variables.distr.lower() == "fedora":
+    if "fedora" in Variables.distr.lower():
         acsiiart = acs.fedora
         color = Fore.BLUE
     elif "windows" in platform.system().lower():
