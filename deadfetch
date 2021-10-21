@@ -22,6 +22,7 @@ if "fedora" in Variables.distr.lower():
     color = Fore.BLUE
 elif "windows" in platform.system().lower():
     asciiart = acs.windows
+    color = Fore.BLUE
 elif "redhat" in Variables.distr.lower():
     asciiart = acs.redhat
     color = Fore.RED
