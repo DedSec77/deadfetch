@@ -37,6 +37,9 @@ def checkSystem():
     elif "arch" in Variables.distr.lower():
         asciiart = acs.arch
         print(asciiart)
+    elif "arco" in Variables.distr.lower():
+        asciiart = acs.arcolinux
+        print(asciiart)
     elif "gentoo" in Variables.distr.lower():
         asciiart = acs.gentoo
         print(asciiart)
@@ -58,6 +61,5 @@ def checkSystem():
     elif platform.system().lower() == "darwin":
                 acsiiart = acs.apple
                 print(asciiart)
-
 
 checkSystem()

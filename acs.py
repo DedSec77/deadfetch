@@ -264,7 +264,7 @@ raspberry = Fore.GREEN + rf"""
    '~ .~~~. ~'      {Fore.RED +"Wm: " + reset + Variables.GUI  + Fore.RED}
                     {Fore.RED +"Terminal: " + reset + Variables.term  + Fore.RED}
 """ + Fore.RESET
-
+#v2.2
 manjaro = Fore.GREEN + rf"""
 {Fore.GREEN}██████████████████  ████████    {Variables.User + "@" + Variables.distr + Fore.RESET + Fore.GREEN}
 {Fore.GREEN}██████████████████  ████████    
@@ -280,4 +280,27 @@ manjaro = Fore.GREEN + rf"""
 {Fore.GREEN}████████  ████████  ████████
 {Fore.GREEN}████████  ████████  ████████
 {Fore.GREEN}████████  ████████  ████████
+"""
+#v2.3
+arcolinux = Fore.BLUE + rf"""
+                    /-
+                   ooo:             {Variables.User + "@" + Variables.distr + Fore.RESET + Fore.BLUE}
+                  yoooo/
+                 yooooooo           {Fore.BLUE + "CPU: " + reset + Variables.CPU  + Fore.BLUE}
+                yooooooooo          {Fore.BLUE +"Bit: " + reset + Variables.Bit  + Fore.BLUE}
+               yooooooooooo         {Fore.BLUE +"System: " + reset + platform.system()  + Fore.BLUE}
+             .yooooooooooooo        {Fore.BLUE +"Distro: " + reset +  Variables.distr  + Fore.BLUE}
+            .oooooooooooooooo       {Fore.BLUE +"Shell: " + reset + Variables.shell  + Fore.BLUE}
+           .oooooooarcoooooooo      {Fore.BLUE +"Ram: " + reset + Variables.ram  + Fore.BLUE}
+          .ooooooooo-oooooooooo     {Fore.BLUE +"Wm: " + reset + Variables.GUI  + Fore.BLUE}
+         .ooooooooo-  oooooooooo    {Fore.BLUE +"Terminal: " + reset + Variables.term  + Fore.BLUE}
+        :ooooooooo.    :ooooooooo
+       :ooooooooo.      :ooooooooo
+      :oooarcooo         .oooarcooo
+     :ooooooooy           .ooooooooo{Fore.WHITE}
+    :ooooooooo   /ooooooooooooooooooo
+   :ooooooooo      .-ooooooooooooooooo.
+  ooooooooo-             -ooooooooooooo.
+ ooooooooo-                 .-oooooooooo.
+ooooooooo.                     -ooooooooo
 """
