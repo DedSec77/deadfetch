@@ -59,7 +59,7 @@ def checkSystem():
         asciiart = acs.raspberry
         print(asciiart)
     elif platform.system().lower() == "darwin":
-                acsiiart = acs.apple
+                asciiart = acs.apple
                 print(asciiart)
 
 checkSystem()
