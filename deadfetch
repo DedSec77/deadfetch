@@ -43,6 +43,9 @@ def checkSystem():
     elif "pop!_os" in Variables.distr.lower():
         asciiart = acs.popos
         print(asciiart)
+    elif "manjaro" in Variables.distr.lower():
+        acsiiart = acs.manjaro
+        print(acsiiart)
     elif  platform.system().lower() == "macos":
         asciiart = acs.apple
         print(asciiart)
@@ -55,7 +58,6 @@ def checkSystem():
     elif platform.system().lower() == "darwin":
                 acsiiart = acs.apple
                 print(asciiart)
-
 
 
 checkSystem()

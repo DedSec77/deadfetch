@@ -264,3 +264,20 @@ raspberry = Fore.GREEN + rf"""
    '~ .~~~. ~'      {Fore.RED +"Wm: " + reset + Variables.GUI  + Fore.RED}
                     {Fore.RED +"Terminal: " + reset + Variables.term  + Fore.RED}
 """ + Fore.RESET
+
+manjaro = Fore.GREEN + rf"""
+{Fore.GREEN}██████████████████  ████████    {Variables.User + "@" + Variables.distr + Fore.RESET + Fore.GREEN}
+{Fore.GREEN}██████████████████  ████████    
+{Fore.GREEN}██████████████████  ████████    {Fore.GREEN + "CPU: " + reset + Variables.CPU  + Fore.GREEN}    
+{Fore.GREEN}██████████████████  ████████    {Fore.GREEN +"Bit: " + reset + Variables.Bit  + Fore.GREEN}
+{Fore.GREEN}████████            ████████    {Fore.GREEN +"System: " + reset + platform.system()  + Fore.GREEN}
+{Fore.GREEN}████████  ████████  ████████    {Fore.GREEN +"Distro: " + reset +  Variables.distr  + Fore.GREEN}
+{Fore.GREEN}████████  ████████  ████████    {Fore.GREEN +"Shell: " + reset + Variables.shell  + Fore.GREEN}
+{Fore.GREEN}████████  ████████  ████████    {Fore.GREEN +"Ram: " + reset + Variables.ram  + Fore.GREEN}
+{Fore.GREEN}████████  ████████  ████████    {Fore.GREEN +"Wm: " + reset + Variables.GUI  + Fore.GREEN}
+{Fore.GREEN}████████  ████████  ████████    {Fore.GREEN +"Terminal: " + reset + Variables.term  + Fore.GREEN}
+{Fore.GREEN}████████  ████████  ████████
+{Fore.GREEN}████████  ████████  ████████
+{Fore.GREEN}████████  ████████  ████████
+{Fore.GREEN}████████  ████████  ████████
+"""
