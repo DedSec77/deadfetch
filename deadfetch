@@ -9,6 +9,10 @@ import distro
 import acs
 from osinfo import Variables
 
+try:
+    argm = sys.argv[1]
+except:
+    argm = ""
 
 global asciiart
 asciiart = ""
@@ -16,7 +20,7 @@ asciiart = ""
 reset = Fore.RESET
 
 def checkSystem():
-    if sys.argv[1] == "--logo":
+    if argm == "--logo":
         if "windows" in sys.argv[2].lower():
             init(convert=True)
 
