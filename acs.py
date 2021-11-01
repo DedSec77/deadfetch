@@ -304,3 +304,27 @@ arcolinux = Fore.BLUE + rf"""
  ooooooooo-                 .-oooooooooo.
 ooooooooo.                     -ooooooooo
 """
+
+kali = Fore.BLUE + rf"""
+..............                                    
+            ..,;:ccc,.
+          ......''';lxO.                                  {Variables.User + "@" + Variables.distr + Fore.RESET + Fore.BLUE}
+.....''''..........,:ld;                
+           .';;;:::;,,.x,                                 {Fore.BLUE + "CPU: " + reset + Variables.CPU  + Fore.BLUE}
+      ..'''.            0Xxoc:,.  ...                     {Fore.BLUE +"Bit: " + reset + Variables.Bit  + Fore.BLUE}
+  ....                ,ONkc;,;cokOdc',.                   {Fore.BLUE +"System: " + reset + platform.system()  + Fore.BLUE}
+ .                   OMo           ':ddo.                 {Fore.BLUE +"Distro: " + reset +  Variables.distr  + Fore.BLUE}
+                    dMc               :OO;                {Fore.BLUE +"Shell: " + reset + Variables.shell  + Fore.BLUE}
+                    0M.                 .:o.              {Fore.BLUE +"Ram: " + reset + Variables.ram  + Fore.BLUE}
+                    ;Wd                                   {Fore.BLUE +"Wm: " + reset + Variables.GUI  + Fore.BLUE}
+                     ;XO,                                 {Fore.BLUE +"Terminal: " + reset + Variables.term  + Fore.BLUE}
+                       ,d0Odlc;,..
+                           ..',;:cdOOd::,.
+                                    .:d;.':;.
+                                       'd,  .'
+                                         ;l   ..
+                                          .o
+                                            c
+                                            .'
+                                             .
+"""

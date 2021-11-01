@@ -54,6 +54,9 @@ def checkSystem():
         elif "manjaro" in sys.argv[2].lower():
             acsiiart = acs.manjaro
             print(acsiiart)
+        elif "kali" in sys.argv[2].lower():
+            acsiiart = acs.kali
+            print(acsiiart)
         elif  sys.argv[2].lower() == "macos":
             asciiart = acs.apple
             print(asciiart)
@@ -99,6 +102,9 @@ def checkSystem():
             print(asciiart)
         elif "manjaro" in Variables.distr.lower():
             acsiiart = acs.manjaro
+            print(acsiiart)
+        elif "kali" in Variables.distr.lower():
+            acsiiart = acs.kali
             print(acsiiart)
         elif  platform.system().lower() == "macos":
             asciiart = acs.apple
