@@ -26,25 +26,28 @@ pip install -r requirements.txt
 How to activate?
 <br/>
 Write in console/terminal "deadfetch"
-![image1](https://i.imgur.com/ckgrARp.png)
+<br/>
+<p align="center">
+  <img src="https://i.imgur.com/ckgrARp.png" width="350" title="hover text">
+</p>
 <br/>
 <h2><b>Help</b></h2>
 <br/>
 Write in console/terminal "deadfetch --help"
 <br/>
-![image2](https://i.imgur.com/kaXl0r8.png)
+<p align="center">
+  <img src="https://i.imgur.com/kaXl0r8.png" width="350" title="hover text">
+</p>
 <h2><b>You want use other logo??</b></h2>
 <br/>
 Write in console/terminal "deadfetch --logo name"
 <br/>
-![image3](https://i.imgur.com/AGIU96W.png)
-
+<p align="center">
+  <img src="https://i.imgur.com/AGIU96W.png" width="350" title="hover text">
+</p>
 # Authors
 <br/>
 <a href=""https://github.com/DedSec77>DedSec77</a> Made a repository
 <br/>
 <a href="https://github.com/Butterfly13377">Butterfly</a> Fixed a lot of bugs 
-<p align="center">
-  <img src="https://i.imgur.com/kaXl0r8.png" width="350" title="hover text">
-  <img src="https://i.imgur.com/kaXl0r8.png" width="350" alt="accessibility text">
-</p>
+
