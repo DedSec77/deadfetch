@@ -28,7 +28,7 @@ How to activate?
 Write in console/terminal "deadfetch"
 <br/>
 <p align="center">
-  <img src="https://i.imgur.com/ckgrARp.png" width="350" title="hover text">
+  <img src="https://i.imgur.com/ckgrARp.png" width="650" title="1">
 </p>
 <br/>
 <h2><b>Help</b></h2>
@@ -36,14 +36,14 @@ Write in console/terminal "deadfetch"
 Write in console/terminal "deadfetch --help"
 <br/>
 <p align="center">
-  <img src="https://i.imgur.com/kaXl0r8.png" width="350" title="hover text">
+  <img src="https://i.imgur.com/kaXl0r8.png" width="650" title="2">
 </p>
 <h2><b>You want use other logo??</b></h2>
 <br/>
 Write in console/terminal "deadfetch --logo name"
 <br/>
 <p align="center">
-  <img src="https://i.imgur.com/AGIU96W.png" width="350" title="hover text">
+  <img src="https://i.imgur.com/AGIU96W.png" width="650" title="3">
 </p>
 # Authors
 <br/>
