@@ -48,7 +48,7 @@ def checkSystem():
         elif "gentoo" in sys.argv[2].lower():
             asciiart = acs.gentoo
             print(asciiart)
-        elif "pop!_os" in sys.argv[2].lower():
+        elif "popos" in sys.argv[2].lower():
             asciiart = acs.popos
             print(asciiart)
         elif "manjaro" in sys.argv[2].lower():
@@ -69,6 +69,13 @@ def checkSystem():
         elif sys.argv[2].lower() == "darwin":
             asciiart = acs.apple
             print(asciiart)
+
+    elif argm == "--help":
+	       print("""
+--logo:
+	arg: debian, ubuntu, raspberry, kali, macos
+   	manjaro, arch, arco, gentoo, windows, redhat
+	   """)
 
     else:
         if "windows" in platform.system().lower():
