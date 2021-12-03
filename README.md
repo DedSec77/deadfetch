@@ -44,3 +44,7 @@ Write in console/terminal "deadfetch --logo name"
 <a href=""https://github.com/DedSec77>DedSec77</a> Made a repository
 <br/>
 <a href="https://github.com/Butterfly13377">Butterfly</a> Fixed a lot of bugs 
+<p align="center">
+  <img src="https://i.imgur.com/kaXl0r8.png" width="350" title="hover text">
+  <img src="https://i.imgur.com/kaXl0r8.png" width="350" alt="accessibility text">
+</p>
