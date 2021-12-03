@@ -24,7 +24,6 @@ pip install -r requirements.txt
 # Commands
 <br/>
 How to activate?
-<br/>
 Write in console/terminal "deadfetch"
 <br/>
 <p align="center">
@@ -32,14 +31,12 @@ Write in console/terminal "deadfetch"
 </p>
 <br/>
 <h2><b>Help</b></h2>
-<br/>
 Write in console/terminal "deadfetch --help"
 <br/>
 <p align="center">
   <img src="https://i.imgur.com/kaXl0r8.png" width="650" title="2">
 </p>
 <h2><b>You want use other logo??</b></h2>
-<br/>
 Write in console/terminal "deadfetch --logo name"
 <br/>
 <p align="center">
