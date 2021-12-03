@@ -26,18 +26,18 @@ pip install -r requirements.txt
 How to activate?
 <br/>
 Write in console/terminal "deadfetch"
-![image1](https://user-images.githubusercontent.com/55799553/144617103-6cc847c2-aaf5-49bf-8b96-4258dd433462.png)
+![image1](2.png)
 <br/>
 <h2><b>Help</b></h2>
 <br/>
 Write in console/terminal "deadfetch --help"
 <br/>
-![image2](https://user-images.githubusercontent.com/55799553/144618171-72d64d3d-91ea-44bf-955f-8598fe06dbca.png)
+![image2](3.png)
 <h2><b>You want use other logo??</b></h2>
 <br/>
 Write in console/terminal "deadfetch --logo name"
 <br/>
-![image3](https://user-images.githubusercontent.com/55799553/144618453-8ab9f8ed-66b5-4ea4-9f21-99eb6e340112.png)
+![image3](1.png)
 
 # Authors
 <br/>
