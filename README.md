@@ -1,10 +1,5 @@
 # deadfetch
 This is my fetch, with ascii arts from neofetch and internet
-# Authors
-<br/>
-<a href=""https://github.com/DedSec77>DedSec77</a> Made a repository
-<br/>
-<a href="https://github.com/Butterfly13377">Butterfly</a> Fixed a lot of bugs 
 
 # Installation
 First what you need its python<br/>
@@ -26,15 +21,26 @@ First what you need its python<br/>
 <br/>
 pip install -r requirements.txt
 
-# Final
+# Commands
 <br/>
+How to activate?
+<br/>
+Write in console/terminal "deadfetch"
+![изображение](https://user-images.githubusercontent.com/55799553/144617103-6cc847c2-aaf5-49bf-8b96-4258dd433462.png)
+<br/>
+<h2><b>Help</b></h2>
+<br/>
+Write in console/terminal "deadfetch --help"
+<br/>
+![изображение](https://user-images.githubusercontent.com/55799553/144618171-72d64d3d-91ea-44bf-955f-8598fe06dbca.png)
+<h2><b>You want use other logo??</b></h2>
+<br/>
+Write in console/terminal "deadfetch --logo name"
+<br/>
+![изображение](https://user-images.githubusercontent.com/55799553/144618453-8ab9f8ed-66b5-4ea4-9f21-99eb6e340112.png)
 
-![Снимок экрана от 2021-10-07 23-20-48](https://user-images.githubusercontent.com/55799553/136444343-20bccb2f-0ee3-4086-abd1-9a22ceb6df5f.png)
+# Authors
 <br/>
-![unknown](https://cdn.discordapp.com/attachments/898278432327225371/900341302900719616/unknown.png)
+<a href=""https://github.com/DedSec77>DedSec77</a> Made a repository
 <br/>
-![unknown2](https://cdn.discordapp.com/attachments/896433730657329205/896433878628171817/unknown.png)
-<br/>
-![20211009_202243](https://cdn.discordapp.com/attachments/896433730657329205/896450273487241256/20211009_202243.png)
-<br/>
-![unknow3](https://cdn.discordapp.com/attachments/898278432327225371/900784848501870654/unknown.png)
+<a href="https://github.com/Butterfly13377">Butterfly</a> Fixed a lot of bugs 
