@@ -48,5 +48,5 @@ Write in console/terminal "deadfetch --logo name"
 <br/>
 <a href=""https://github.com/DedSec77>DedSec77</a> Made a repository
 <br/>
-<a href="https://github.com/Butterfly13377">Butterfly</a> Fixed a lot of bugs 
+<a href="hthttps://github.com/SlashOnTop">SlashOnTop</a> Fixed a lot of bugs 
 
