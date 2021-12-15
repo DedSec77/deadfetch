@@ -42,7 +42,9 @@ Write in console/terminal "deadfetch --logo name"
 <p align="center">
   <img src="https://i.imgur.com/AGIU96W.png" width="650" title="3">
 </p>
+
 # Authors
+
 <br/>
 <a href=""https://github.com/DedSec77>DedSec77</a> Made a repository
 <br/>
