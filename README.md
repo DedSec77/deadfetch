@@ -46,7 +46,7 @@ Write in console/terminal "deadfetch --logo name"
 # Authors
 
 <br/>
-<a href=""https://github.com/DedSec77>DedSec77</a> Made a repository
+<a href="https://github.com/DedSec77">DedSec77</a> Made a repository
 <br/>
-<a href="hthttps://github.com/SlashOnTop">SlashOnTop</a> Fixed a lot of bugs 
+<a href="https://github.com/SlashOnTop">SlashOnTop</a> Fixed a lot of bugs 
 
