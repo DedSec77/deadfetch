@@ -5,125 +5,85 @@ from colorama import Fore, init
 import platform
 import psutil
 import os
-import distro
 import acs
-from osinfo import Variables
+
+reset = Fore.RESET
+def checkSystem():
+    asciiart_dict = {
+        "fedora": acs.fedora,
+        "windows": acs.windows,
+        "redhat": acs.redhat,
+        "ubuntu": acs.ubuntu,
+        "debian": acs.debian,
+        "arch": acs.arch,
+        "arco": acs.arcolinux,
+        "gentoo": acs.gentoo,
+        "pop!_os": acs.popos,
+        "manjaro": acs.manjaro,
+        "kali": acs.kali,
+        "macos": acs.apple,
+        "os x": acs.apple,
+        "raspbian gnu/linux": acs.raspberry,
+        "darwin": acs.apple,
+        "harcore": acs.harcore,
+    }
+
+    distro_name = ""
+
+    if os.path.exists("/etc/os-release"):
+        with open("/etc/os-release", "r") as f:
+            for line in f.readlines():
+                if line.startswith("ID="):
+                    distro_name = line.split("=")[1].strip().lower()
+                    break
+
+    if not distro_name:
+        distro_name = platform.system().lower()
+
+    if distro_name in asciiart_dict:
+        asciiart = asciiart_dict[distro_name]
+        print(asciiart)
+    elif argm == "--help":
+        print("""
+--logo:
+	arg: debian, ubuntu, raspberry, kali, macos
+	manjaro, arch, arco, gentoo, windows, redhat
+	   """)
 
 try:
     argm = sys.argv[1]
 except:
     argm = ""
 
-global asciiart
-asciiart = ""
+if argm == "--logo":
+    distro_name = sys.argv[2].lower()
+    asciiart_dict = {
+        "fedora": acs.fedora,
+        "windows": acs.windows,
+        "redhat": acs.redhat,
+        "ubuntu": acs.ubuntu,
+        "debian": acs.debian,
+        "arch": acs.arch,
+        "arco": acs.arcolinux,
+        "gentoo": acs.gentoo,
+        "pop!_os": acs.popos,
+        "manjaro": acs.manjaro,
+        "kali": acs.kali,
+        "macos": acs.apple,
+        "os x": acs.apple,
+        "raspbian gnu/linux": acs.raspberry,
+        "darwin": acs.apple,
+        "harcore": acs.harcore,
+    }
 
-reset = Fore.RESET
-
-def checkSystem():
-    if argm == "--logo":
-        if "windows" in sys.argv[2].lower():
-            init(convert=True)
-
-        if "fedora" in sys.argv[2].lower():
-            asciiart = acs.fedora
-            print(asciiart)
-        elif "windows" in sys.argv[2].lower():
-            asciiart = acs.windows
-            print(asciiart)
-        elif "redhat" in sys.argv[2].lower():
-            asciiart = acs.redhat
-            print(asciiart)
-        elif "ubuntu" in sys.argv[2].lower():
-            asciiart = acs.ubuntu
-            print(asciiart)
-        elif "debian" in sys.argv[2].lower():
-            asciiart = acs.debian
-            print(asciiart)
-        elif "arch" in sys.argv[2].lower():
-            asciiart = acs.arch
-            print(asciiart)
-        elif "arco" in sys.argv[2].lower():
-            asciiart = acs.arcolinux
-            print(asciiart)
-        elif "gentoo" in sys.argv[2].lower():
-            asciiart = acs.gentoo
-            print(asciiart)
-        elif "popos" in sys.argv[2].lower():
-            asciiart = acs.popos
-            print(asciiart)
-        elif "manjaro" in sys.argv[2].lower():
-            acsiiart = acs.manjaro
-            print(acsiiart)
-        elif "kali" in sys.argv[2].lower():
-            acsiiart = acs.kali
-            print(acsiiart)
-        elif  sys.argv[2].lower() == "macos":
-            asciiart = acs.apple
-            print(asciiart)
-        elif  sys.argv[2].lower() == "os x":
-            asciiart = acs.apple
-            print(asciiart)
-        elif sys.argv[2].lower() == "raspbian gnu/linux":
-            asciiart = acs.raspberry
-            print(asciiart)
-        elif sys.argv[2].lower() == "darwin":
-            asciiart = acs.apple
-            print(asciiart)
-
+    if distro_name in asciiart_dict:
+        asciiart = asciiart_dict[distro_name]
+        print(asciiart)
     elif argm == "--help":
-	       print("""
+        print("""
 --logo:
 	arg: debian, ubuntu, raspberry, kali, macos
-   	manjaro, arch, arco, gentoo, windows, redhat
+	manjaro, arch, arco, gentoo, windows, redhat
 	   """)
-
-    else:
-        if "windows" in platform.system().lower():
-            init(convert=True)
-        if "fedora" in Variables.distr.lower():
-            asciiart = acs.fedora
-            print(asciiart)
-        elif "windows" in platform.system().lower():
-            asciiart = acs.windows
-            print(asciiart)
-        elif "redhat" in Variables.distr.lower():
-            asciiart = acs.redhat
-            print(asciiart)
-        elif "ubuntu" in Variables.distr.lower():
-            asciiart = acs.ubuntu
-            print(asciiart)
-        elif "debian" in Variables.distr.lower():
-            asciiart = acs.debian
-            print(asciiart)
-        elif "arch" in Variables.distr.lower():
-            asciiart = acs.arch
-            print(asciiart)
-        elif "arco" in Variables.distr.lower():
-            asciiart = acs.arcolinux
-            print(asciiart)
-        elif "gentoo" in Variables.distr.lower():
-            asciiart = acs.gentoo
-            print(asciiart)
-        elif "pop!_os" in Variables.distr.lower():
-            asciiart = acs.popos
-            print(asciiart)
-        elif "manjaro" in Variables.distr.lower():
-            acsiiart = acs.manjaro
-            print(acsiiart)
-        elif "kali" in Variables.distr.lower():
-            acsiiart = acs.kali
-            print(acsiiart)
-        elif  platform.system().lower() == "macos":
-            asciiart = acs.apple
-            print(asciiart)
-        elif  platform.system().lower() == "os x":
-            asciiart = acs.apple
-            print(asciiart)
-        elif Variables.distr.lower() == "raspbian gnu/linux":
-            asciiart = acs.raspberry
-            print(asciiart)
-        elif platform.system().lower() == "darwin":
-            asciiart = acs.apple
-            print(asciiart)
-
-checkSystem()
+else:
+    checkSystem()

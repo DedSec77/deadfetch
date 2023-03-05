@@ -1,51 +1,17 @@
 import cpuinfo
-from colorama import Fore
 import platform
 import psutil
 import os
 import distro
-#info about system
+from colorama import Fore
+
 class Variables():
-    try:
-        shell = os.environ['SHELL'].replace("/usr/bin/", "")
-    except:
-        shell = "Unknown"
-        pass
-    try:
-        proc = cpuinfo.get_cpu_info()
-        CPU = proc["brand_raw"]
-    except:
-        CPU = "Unknown"
-        pass
-    try:
-        proc = cpuinfo.get_cpu_info()
-        Bit = proc["arch_string_raw"]
-    except:
-        Bit = "Unknown"
-        pass
-    try:
-        ram = str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
-    except:
-        ram = "Unknown"
-        pass
-    try:
-        User = os.environ['USER']
-    except:
-        pass
-        User = "Unknown"
-    try:
-        distr = distro.linux_distribution()[0]
-    except:
-        distr = "Unknown"
-        pass
-    try:
-        if os.environ['XDG_CURRENT_DESKTOP'] and os.environ['DESKTOP_SESSION']:
-            GUI = os.environ['XDG_CURRENT_DESKTOP'] +  ", " + os.environ['DESKTOP_SESSION']
-    except:
-        GUI = "Unknown"
-        pass
-    try:
-        term = os.environ["TERM"]
-    except:
-        term = "Unknown"
-        pass
+    shell = os.path.basename(os.environ.get('SHELL', 'Unknown'))
+    proc = cpuinfo.get_cpu_info()
+    CPU = proc.get('brand_raw', 'Unknown')
+    Bit = proc.get('arch_string_raw', 'Unknown')
+    ram = f"{round(psutil.virtual_memory().total / (1024.0 ** 3))} GB"
+    User = os.environ.get('USER', 'Unknown')
+    distr = distro.linux_distribution()[0]
+    GUI = f"{os.environ.get('XDG_CURRENT_DESKTOP', 'Unknown')}, {os.environ.get('DESKTOP_SESSION', 'Unknown')}"
+    term = os.environ.get('TERM', 'Unknown')

@@ -328,3 +328,22 @@ kali = Fore.BLUE + rf"""
                                             .'
                                              .
 """
+harcore = Fore.GREEN + rf"""
+                                   
+           ////////////////////             {Variables.User + " " + Variables.distr + Fore.RESET + Fore.GREEN}
+       ///////////////////////////          {Fore.GREEN + "CPU: " + reset + Variables.CPU  + Fore.GREEN}
+      (/////////////////////////////        {Fore.GREEN +"Bit: " + reset + Variables.Bit  + Fore.GREEN}
+   ((((  //////////   ////////////////      {Fore.GREEN +"System: " + reset + platform.system()  + Fore.GREEN}
+  ((((((((  //             ////////////     {Fore.GREEN +"Distro: " + reset +  Variables.distr  + Fore.GREEN}
+ (((((((((((                 ///////////    {Fore.GREEN +"Shell: " + reset + Variables.shell  + Fore.GREEN}
+ ((((((((((                   //////////    {Fore.GREEN +"Ram: " + reset + Variables.ram  + Fore.GREEN}
+ ((((((((((                                 {Fore.GREEN +"Wm: " + reset + Variables.GUI  + Fore.MAGENTA}
+ (((((((((((                 (((((((((((    {Fore.GREEN +"Terminal: " + reset + Variables.term  + Fore.MAGENTA} 
+ ////////////               ////////////    {Fore.MAGENTA}    
+  //////////////         //////////////     
+    /////////////////////////////////       
+      /////////////////////////////         
+         ///////////////////////            
+             (/////////////#                           
+                                        
+"""
