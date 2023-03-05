@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+import sys
+import cpuinfo
+from colorama import Fore, init
+import platform
+import psutil
+import os
+import acs
+
+reset = Fore.RESET
+def checkSystem():
+    asciiart_dict = {
+        "fedora": acs.fedora,
+        "windows": acs.windows,
+        "redhat": acs.redhat,
+        "ubuntu": acs.ubuntu,
+        "debian": acs.debian,
+        "arch": acs.arch,
+        "arco": acs.arcolinux,
+        "gentoo": acs.gentoo,
+        "pop!_os": acs.popos,
+        "manjaro": acs.manjaro,
+        "kali": acs.kali,
+        "macos": acs.apple,
+        "os x": acs.apple,
+        "raspbian gnu/linux": acs.raspberry,
+        "darwin": acs.apple,
+        "harcore": acs.harcore,
+    }
+
+    distro_name = ""
+
+    if os.path.exists("/etc/os-release"):
+        with open("/etc/os-release", "r") as f:
+            for line in f.readlines():
+                if line.startswith("ID="):
+                    distro_name = line.split("=")[1].strip().lower()
+                    break
+
+    if not distro_name:
+        distro_name = platform.system().lower()
+
+    if distro_name in asciiart_dict:
+        asciiart = asciiart_dict[distro_name]
+        print(asciiart)
+    elif argm == "--help":
+        print("""
+--logo:
+	arg: debian, ubuntu, raspberry, kali, macos
+	manjaro, arch, arco, gentoo, windows, redhat
+	   """)
+
+try:
+    argm = sys.argv[1]
+except:
+    argm = ""
+
+if argm == "--logo":
+    distro_name = sys.argv[2].lower()
+    asciiart_dict = {
+        "fedora": acs.fedora,
+        "windows": acs.windows,
+        "redhat": acs.redhat,
+        "ubuntu": acs.ubuntu,
+        "debian": acs.debian,
+        "arch": acs.arch,
+        "arco": acs.arcolinux,
+        "gentoo": acs.gentoo,
+        "pop!_os": acs.popos,
+        "manjaro": acs.manjaro,
+        "kali": acs.kali,
+        "macos": acs.apple,
+        "os x": acs.apple,
+        "raspbian gnu/linux": acs.raspberry,
+        "darwin": acs.apple,
+        "harcore": acs.harcore,
+    }
+
+    if distro_name in asciiart_dict:
+        asciiart = asciiart_dict[distro_name]
+        print(asciiart)
+    elif argm == "--help":
+        print("""
+--logo:
+	arg: debian, ubuntu, raspberry, kali, macos
+	manjaro, arch, arco, gentoo, windows, redhat
+	   """)
+else:
+    checkSystem()
