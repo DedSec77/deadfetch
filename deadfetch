@@ -83,7 +83,7 @@ if argm == "--logo":
         print("""
 --logo:
 	arg: debian, ubuntu, raspberry, kali, macos
-	manjaro, arch, arco, gentoo, windows, redhat
+	manjaro, arch, arco, gentoo, windows, redhat, deadfetch
 	   """)
 else:
     checkSystem()
