@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import sys
 import cpuinfo
 from colorama import Fore, init
@@ -8,6 +9,7 @@ import os
 import acs
 
 reset = Fore.RESET
+
 def checkSystem():
     asciiart_dict = {
         "fedora": acs.fedora,
@@ -40,50 +42,29 @@ def checkSystem():
     if not distro_name:
         distro_name = platform.system().lower()
 
-    if distro_name in asciiart_dict:
-        asciiart = asciiart_dict[distro_name]
-        print(asciiart)
-    elif argm == "--help":
-        print("""
---logo:
-	arg: debian, ubuntu, raspberry, kali, macos
-	manjaro, arch, arco, gentoo, windows, redhat
-	   """)
+    if argm == "--logo":
+        distro_name = sys.argv[2].lower()
+        if distro_name in asciiart_dict:
+            asciiart = asciiart_dict[distro_name]
+            print(asciiart)
+    else:
+        if distro_name in asciiart_dict:
+            asciiart = asciiart_dict[distro_name]
+            print(asciiart)
+        else:
+            print("System not recognized.")
 
-try:
+if len(sys.argv) > 1:
     argm = sys.argv[1]
-except:
+else:
     argm = ""
 
-if argm == "--logo":
-    distro_name = sys.argv[2].lower()
-    asciiart_dict = {
-        "fedora": acs.fedora,
-        "windows": acs.windows,
-        "redhat": acs.redhat,
-        "ubuntu": acs.ubuntu,
-        "debian": acs.debian,
-        "arch": acs.arch,
-        "arco": acs.arcolinux,
-        "gentoo": acs.gentoo,
-        "pop!_os": acs.popos,
-        "manjaro": acs.manjaro,
-        "kali": acs.kali,
-        "macos": acs.apple,
-        "os x": acs.apple,
-        "raspbian gnu/linux": acs.raspberry,
-        "darwin": acs.apple,
-        "harcore": acs.harcore,
-    }
-
-    if distro_name in asciiart_dict:
-        asciiart = asciiart_dict[distro_name]
-        print(asciiart)
-    elif argm == "--help":
-        print("""
+if argm == "--help":
+    print("""
 --logo:
-	arg: debian, ubuntu, raspberry, kali, macos
-	manjaro, arch, arco, gentoo, windows, redhat, deadfetch
-	   """)
+    arg: debian, ubuntu, raspberry, kali, macos
+    manjaro, arch, arco, gentoo, windows, redhat,
+    harcore
+       """)
 else:
     checkSystem()

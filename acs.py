@@ -127,17 +127,22 @@ fedora = Fore.BLUE + rf"""
 """ + Fore.RESET
 
 windows = rf'''
-                   88                      88
-                   ""                      88
-                                           88
-8b      db      d8 88 8b,dPPYba,   ,adPPYb,88  ,adPPYba,  8b      db      d8 ,adPPYba       {"CPU: " + Variables.CPU}
-`8b    d88b    d8' 88 88P'   `"8a a8"    `Y88 a8"     "8a `8b    d88b    d8' I8[    ""      {"Bit: " + Variables.Bit}
- `8b  d8'`8b  d8'  88 88       88 8b       88 8b       d8  `8b  d8'`8b  d8'  `"Y8ba,        {"System: " + platform.system()}
-  `8bd8'  `8bd8'   88 88       88 "8a,   ,d88 "8a,   ,a8"   `8bd8'  `8bd8'    aa    ]8I     {"Ram: " + Variables.ram}
-    YP      YP     88 88       88  `"8bbdP"Y8  `"YbbdP"'      YP      YP      "YbbdP"
-
-'''
-ubuntu = Fore.YELLOW + f"""
+{Fore.BLUE}################  ################
+{Fore.BLUE}################  ################       
+{Fore.BLUE}################  ################               {"System: " + platform.system()}
+{Fore.BLUE}################  ################
+{Fore.BLUE}################  ################
+{Fore.BLUE}################  ################               {"CPU: " + Variables.CPU}
+                                                            {"Bit: " + Variables.Bit}
+{Fore.BLUE}################  ################               {"Ram: " + Variables.ram}
+{Fore.BLUE}################  ################
+{Fore.BLUE}################  ################
+{Fore.BLUE}################  ################
+{Fore.BLUE}################  ################
+{Fore.BLUE}################  ################
+{Fore.BLUE}################  ################
+''' + Fore.RESET 
+ubuntu = Fore.YELLOW + rf"""
 {Fore.YELLOW}            .-.
 {Fore.YELLOW}         .-'``(   )             {Fore.YELLOW + Variables.User + "@" + Variables.distr + Fore.RESET}
 {Fore.YELLOW}      ,`\ \    `-`.
@@ -170,7 +175,7 @@ debian = Fore.RED + rf"""
 {Fore.RED}           ~~~~~
 """ + Fore.RESET
 
-popos = Fore.BLUE + f"""
+popos = Fore.BLUE + rf"""
              /////////////                                                                                      {Fore.BLUE + Variables.User + "@" + Variables.distr + Fore.RESET + Fore.BLUE}
          /////////////////////
       ///////{Fore.WHITE}*767{Fore.BLUE}////////////////                                                        {Fore.BLUE + "CPU: " + reset + Variables.CPU  + Fore.BLUE}
@@ -237,7 +242,7 @@ yMMNNNNNNNmmmmmNNMmhs+/-`                       {Fore.MAGENTA +"Terminal: " + re
   `-//////:--.
 """ + Fore.RESET
 
-apple =  Fore.GREEN + f"""
+apple =  Fore.GREEN + rf"""
             .:'           {Fore.GREEN + Variables.User + "@" + platform.system() + reset + Fore.GREEN}
          __ :'__
       .'`  `-'  ``.       {Fore.RED + "CPU: " + reset + Variables.CPU + Fore.RED}
