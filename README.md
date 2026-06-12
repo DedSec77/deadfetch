@@ -6,22 +6,30 @@ Install python lol<br/>
 <h2>Fedora</h2><br/>
       sudo dnf install python3 <br/>
       sudo dnf install python3-pip<br/>
+          git clone https://github.com/dedsec77/deadfetch.git<br/>
+      cd deadfetch<br/>
       chmod +x install_fedora.sh <br/>
       ./install_fedora.sh <br/>
 <br/>
 <h2>Debian</h2><br/>
     sudo apt install python3<br/>
     sudo apt install python3-pip<br/>
+        git clone https://github.com/dedsec77/deadfetch.git<br/>
+      cd deadfetch<br/>
     chmod +x install_debian.sh<br/>
     ./install_debian.sh <br/>
 <br/>
 <h2>Arch</h2><br/>
     sudo pacman -S python3 python-pip python-py-cpuinfo python-distro python-psutil <br/>
+    git clone https://github.com/dedsec77/deadfetch.git<br/>
+      cd deadfetch<br/>
      chmod +x install_arch.sh<br/>
     ./install_arch.sh <br/>
 <br/>
 <h1>Other</h1>
 <br/>
+    git clone https://github.com/nedask/deadfetch.git<br/>
+      cd deadfetch<br/>
 pip install -r requirements.txt<br/>
 python deadfetch
 
