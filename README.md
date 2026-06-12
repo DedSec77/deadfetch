@@ -54,3 +54,4 @@ Write in console/terminal "deadfetch --logo name"
 
 
 
+
