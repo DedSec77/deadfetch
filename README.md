@@ -20,11 +20,12 @@ Install python lol<br/>
     ./install_debian.sh <br/>
 <br/>
 <h2>Arch</h2><br/>
-    sudo pacman -S python3 python-pip python-py-cpuinfo python-distro python-psutil <br/>
-    git clone https://github.com/dedsec77/deadfetch.git<br/>
-      cd deadfetch<br/>
-     chmod +x install_arch.sh<br/>
-    ./install_arch.sh <br/>
+
+sudo pacman -S python3 python-pip python-py-cpuinfo python-distro python-psutil <br/>
+git clone https://github.com/dedsec77/deadfetch.git<br/>
+cd deadfetch<br/>
+chmod +x deadfetch osinfo.py acs.py <br/>
+sudo cp deadfetch /usr/bin/ && sudo cp acs.py /usr/bin/ && sudo cp osinfo.py /usr/bin/
 <br/>
 <h1>Other</h1>
 <br/>
