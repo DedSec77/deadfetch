@@ -29,7 +29,7 @@ sudo cp deadfetch /usr/bin/ && sudo cp acs.py /usr/bin/ && sudo cp osinfo.py /us
 <br/>
 <h1>Other</h1>
 <br/>
-    git clone https://github.com/nedask/deadfetch.git<br/>
+    git clone https://github.com/dedsec77/deadfetch.git<br/>
       cd deadfetch<br/>
 pip install -r requirements.txt<br/>
 python deadfetch
