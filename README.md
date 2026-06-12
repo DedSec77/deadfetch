@@ -1,8 +1,8 @@
 # deadfetch
-This is my fetch, with ascii arts from neofetch and internet
+This is dedsec77 fetch, with ascii arts from neofetch and internet
 
 # Installation
-First what you need its python<br/>
+Install python lol<br/>
 <h2>Fedora</h2><br/>
       sudo dnf install python3 <br/>
       sudo dnf install python3-pip<br/>
@@ -51,5 +51,6 @@ Write in console/terminal "deadfetch --logo name"
 
 <br/>
 <a href="https://github.com/DedSec77">DedSec77</a> Made a repository
+
 
 
