@@ -16,7 +16,7 @@ First what you need its python<br/>
     ./install_debian.sh <br/>
 <br/>
 <h2>Arch</h2><br/>
-    sudo pacman -S python3 python-pip python-py-cpuinfo python-distro python-psutil
+    sudo pacman -S python3 python-pip python-py-cpuinfo python-distro python-psutil <br/>
      chmod +x install_arch.sh<br/>
     ./install_arch.sh <br/>
 <br/>
