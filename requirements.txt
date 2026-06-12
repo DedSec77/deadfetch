@@ -1,4 +1,3 @@
 py-cpuinfo
-colorama
-distro
 psutil
+distro
