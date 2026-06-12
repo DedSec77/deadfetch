@@ -1,173 +1,232 @@
-# osinfo.py – system information gathering with optional dependencies
+#!/usr/bin/env python3
 
-import os
+import sys
+import argparse
 import platform
-import subprocess
+import shutil
+from osinfo import SystemInfo
 from importlib.util import find_spec
-from datetime import datetime, timedelta
 
-class SystemInfo:
-    def __init__(self):
-        self.shell = self._get_shell()
-        self.cpu = self._get_cpu()
-        self.bit = self._get_bit()
-        self.ram = self._get_ram()
-        self.user = self._get_user()
-        self.distro = self._get_distro()
-        self.kernel = platform.release()
-        self.uptime = self._get_uptime()
-        self.disk = self._get_disk()
-        self.packages = self._get_packages()
-        self.gui = self._get_gui()
-        self.term = self._get_term()
-        self.gpu = self._get_gpu()
-        self.resolution = self._get_resolution()
+# ANSI color codes – no dependencies needed
+class Fore:
+    BLACK   = '\033[30m'
+    RED     = '\033[31m'
+    GREEN   = '\033[32m'
+    YELLOW  = '\033[33m'
+    BLUE    = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN    = '\033[36m'
+    WHITE   = '\033[37m'
+    RESET   = '\033[0m'
 
-    def _get_shell(self):
-        return os.path.basename(os.environ.get('SHELL', os.environ.get('COMSPEC', 'Unknown')))
+def init(*args, **kwargs):
+    pass
 
-    def _get_cpu(self):
-        if find_spec("cpuinfo"):
-            import cpuinfo
-            return cpuinfo.get_cpu_info().get('brand_raw', platform.processor() or 'Unknown')
-        return platform.processor() or 'Unknown'
+import acs
 
-    def _get_bit(self):
-        return platform.machine() or 'Unknown'
+ASCII_ART_MAP = {
+    "fedora": acs.fedora,
+    "windows": acs.windows,
+    "redhat": acs.redhat,
+    "rhel": acs.redhat,
+    "centos": acs.redhat,
+    "ubuntu": acs.ubuntu,
+    "debian": acs.debian,
+    "arch": acs.arch,
+    "arcolinux": acs.arcolinux,
+    "arco": acs.arcolinux,
+    "gentoo": acs.gentoo,
+    "pop": acs.popos,
+    "pop!_os": acs.popos,
+    "manjaro": acs.manjaro,
+    "kali": acs.kali,
+    "macos": acs.apple,
+    "darwin": acs.apple,
+    "os x": acs.apple,
+    "raspbian": acs.raspberry,
+    "raspberry": acs.raspberry,
+    "harcore": acs.harcore,
+}
 
-    def _get_ram(self):
-        if find_spec("psutil"):
-            import psutil
-            return f"{round(psutil.virtual_memory().total / (1024.0 ** 3))} GB"
-        try:
-            with open('/proc/meminfo', 'r') as f:
-                for line in f:
-                    if line.startswith('MemTotal:'):
-                        mem_kb = int(line.split()[1])
-                        return f"{round(mem_kb / (1024 ** 2))} GB"
-        except:
-            pass
-        return 'Unknown'
+FIELD_COLORS = {
+    "user": Fore.GREEN,
+    "distro": Fore.GREEN,
+    "cpu": Fore.RED,
+    "bit": Fore.YELLOW,
+    "kernel": Fore.CYAN,
+    "uptime": Fore.MAGENTA,
+    "shell": Fore.BLUE,
+    "term": Fore.BLUE,
+    "ram": Fore.YELLOW,
+    "disk": Fore.YELLOW,
+    "packages": Fore.CYAN,
+    "gpu": Fore.RED,
+    "resolution": Fore.GREEN,
+    "gui": Fore.MAGENTA,
+}
 
-    def _get_user(self):
-        return os.environ.get('USER', os.environ.get('USERNAME', 'Unknown'))
+LOGO_COLORS = {
+    "arch": Fore.CYAN,
+    "ubuntu": Fore.YELLOW,
+    "fedora": Fore.BLUE,
+    "debian": Fore.RED,
+    "gentoo": Fore.MAGENTA,
+    "manjaro": Fore.GREEN,
+    "kali": Fore.BLUE,
+    "macos": Fore.GREEN,
+    "windows": Fore.BLUE,
+    "raspberry": Fore.GREEN,
+    "pop": Fore.BLUE,
+    "arcolinux": Fore.BLUE,
+    "redhat": Fore.RED,
+    "harcore": Fore.GREEN,
+}
 
-    def _get_distro(self):
+def get_distro_key():
+    system = platform.system().lower()
+    if system == "linux":
         if find_spec("distro"):
             import distro
-            return distro.name()
-        system = platform.system()
-        if system == 'Linux':
-            try:
-                with open('/etc/os-release', 'r') as f:
-                    for line in f:
-                        if line.startswith('PRETTY_NAME='):
-                            return line.split('=')[1].strip().strip('"')
-            except:
-                pass
-            return 'Linux'
-        elif system == 'Darwin':
-            return 'macOS'
-        elif system == 'Windows':
-            return 'Windows'
-        return system
-
-    def _get_uptime(self):
-        if find_spec("psutil"):
-            import psutil
-            uptime_seconds = int(datetime.now().timestamp() - psutil.boot_time())
-            return str(timedelta(seconds=uptime_seconds)).split('.')[0]
-        if platform.system() == 'Linux':
-            try:
-                with open('/proc/uptime', 'r') as f:
-                    uptime_seconds = float(f.read().split()[0])
-                    return str(timedelta(seconds=int(uptime_seconds))).split('.')[0]
-            except:
-                pass
-        return 'Unknown'
-
-    def _get_disk(self):
-        if find_spec("psutil"):
-            import psutil
-            disk = psutil.disk_usage('/')
-            return f"{disk.used // (2**30)} GB / {disk.total // (2**30)} GB ({disk.percent}%)"
-        if platform.system() == 'Linux':
-            try:
-                df = subprocess.check_output(['df', '-h', '/'], text=True).splitlines()[1]
-                parts = df.split()
-                return f"{parts[2]} / {parts[1]} ({parts[4]})"
-            except:
-                pass
-        return 'Unknown'
-
-    def _get_packages(self):
-        if platform.system() != 'Linux':
-            return 'Unknown'
+            distro_id = distro.id().lower()
+            if distro_id in ASCII_ART_MAP:
+                return distro_id
+            like = distro.id_like().lower()
+            for cand in like.split():
+                if cand in ASCII_ART_MAP:
+                    return cand
         try:
-            if os.path.exists('/usr/bin/dpkg'):
-                count = subprocess.check_output(['dpkg', '-l'], text=True).count('\n') - 5
-                return f"{count} (dpkg)"
-            elif os.path.exists('/usr/bin/rpm'):
-                count = subprocess.check_output(['rpm', '-qa'], text=True).count('\n')
-                return f"{count} (rpm)"
-            elif os.path.exists('/usr/bin/pacman'):
-                count = subprocess.check_output(['pacman', '-Q'], text=True).count('\n')
-                return f"{count} (pacman)"
+            with open('/etc/os-release', 'r') as f:
+                for line in f:
+                    if line.startswith('ID='):
+                        _id = line.split('=')[1].strip().strip('"').lower()
+                        if _id in ASCII_ART_MAP:
+                            return _id
         except:
             pass
-        return 'Unknown'
+        return "linux"
+    elif system == "darwin":
+        return "macos"
+    elif system == "windows":
+        return "windows"
+    else:
+        return system
 
-    def _get_gui(self):
-        gui_parts = []
-        if os.environ.get('XDG_CURRENT_DESKTOP'):
-            gui_parts.append(os.environ['XDG_CURRENT_DESKTOP'])
-        if os.environ.get('DESKTOP_SESSION'):
-            gui_parts.append(os.environ['DESKTOP_SESSION'])
-        return ', '.join(gui_parts) if gui_parts else 'Unknown'
+def visible_length(s):
+    """Return the visible length of a string after stripping ANSI escape codes."""
+    import re
+    return len(re.sub(r'\x1b\[[0-9;]*m', '', s))
 
-    def _get_term(self):
-        term = os.environ.get('TERM', 'Unknown')
-        if term == 'Unknown' and platform.system() == 'Windows':
-            term = os.environ.get('COMSPEC', 'cmd.exe')
-        return term
+def print_logo_and_info(info, distro_key, no_info=False):
+    art = ASCII_ART_MAP.get(distro_key, "")
+    if not art:
+        print(f"Unknown distribution: {distro_key}")
+        return
 
-    def _get_gpu(self):
-        system = platform.system()
-        if system == 'Linux':
-            try:
-                lspci = subprocess.check_output(['lspci'], text=True)
-                for line in lspci.splitlines():
-                    if 'VGA' in line or '3D' in line:
-                        return line.split(':')[-1].strip()
-            except:
-                pass
-        elif system == 'Windows':
-            try:
-                import wmi
-                c = wmi.WMI()
-                for gpu in c.Win32_VideoController():
-                    return gpu.Name
-            except ImportError:
-                pass
-        elif system == 'Darwin':
-            try:
-                output = subprocess.check_output(['system_profiler', 'SPDisplaysDataType'], text=True)
-                for line in output.splitlines():
-                    if 'Chipset Model' in line:
-                        return line.split(':')[-1].strip()
-            except:
-                pass
-        return 'Unknown'
+    logo_lines = art.splitlines()
+    # Measure visible width of each logo line (no ANSI codes inside raw art)
+    max_logo_width = max(visible_length(line) for line in logo_lines) if logo_lines else 0
 
-    def _get_resolution(self):
-        if platform.system() == 'Linux' and os.environ.get('DISPLAY'):
-            try:
-                xrandr = subprocess.check_output(['xrandr'], text=True)
-                for line in xrandr.splitlines():
-                    if '*' in line and ' connected' not in line:
-                        res = line.split()[0]
-                        if 'x' in res:
-                            return res
-            except:
-                pass
-        return 'Unknown'
+    if not no_info:
+        info_lines = [
+            (f"{info.user}@{info.distro}", ""),
+            ("-----------", ""),
+            ("CPU:", info.cpu),
+            ("Bit:", info.bit),
+            ("Kernel:", info.kernel),
+            ("Uptime:", info.uptime),
+            ("Shell:", info.shell),
+            ("Terminal:", info.term),
+            ("RAM:", info.ram),
+            ("Disk (root):", info.disk),
+            ("Packages:", info.packages),
+            ("GPU:", info.gpu),
+            ("Resolution:", info.resolution),
+            ("WM/DE:", info.gui),
+        ]
+        # Compute maximum visible length of the right side (label + ': ' + value)
+        max_info_len = 0
+        for label, value in info_lines:
+            # label already includes colon, e.g. "CPU:"
+            line_len = visible_length(label) + 1 + visible_length(value)  # +1 for space
+            if line_len > max_info_len:
+                max_info_len = line_len
+    else:
+        info_lines = []
+        max_info_len = 0
+
+    # Decide layout based on terminal width
+    try:
+        term_width = shutil.get_terminal_size().columns
+    except:
+        term_width = 80  # fallback
+
+    # Needed width for side‑by‑side: logo width + 2 spaces + info width
+    needed_width = max_logo_width + 2 + max_info_len
+    use_side_by_side = (needed_width <= term_width) and not no_info and info_lines
+
+    # Apply logo color if defined
+    logo_color = LOGO_COLORS.get(distro_key, "")
+
+    if use_side_by_side:
+        # Print side‑by‑side
+        num_lines = max(len(logo_lines), len(info_lines))
+        for i in range(num_lines):
+            left = logo_lines[i] if i < len(logo_lines) else ""
+            left_padded = left.ljust(max_logo_width + 2)
+            if logo_color:
+                left_padded = logo_color + left_padded + Fore.RESET
+
+            if i < len(info_lines):
+                label, value = info_lines[i]
+                if label == "-----------":
+                    right = Fore.CYAN + "-----------" + Fore.RESET
+                elif label == f"{info.user}@{info.distro}":
+                    right = Fore.GREEN + label + Fore.RESET
+                else:
+                    color = FIELD_COLORS.get(label.lower().rstrip(':'), Fore.WHITE)
+                    right = f"{color}{label}{Fore.RESET} {value}"
+            else:
+                right = ""
+            print(left_padded + right)
+    else:
+        # Stacked layout: print full logo first, then info below
+        for line in logo_lines:
+            if logo_color:
+                print(logo_color + line + Fore.RESET)
+            else:
+                print(line)
+        if info_lines and not no_info:
+            print()  # blank line
+            for label, value in info_lines:
+                if label == "-----------":
+                    print(Fore.CYAN + "-----------" + Fore.RESET)
+                elif label == f"{info.user}@{info.distro}":
+                    print(Fore.GREEN + label + Fore.RESET)
+                else:
+                    color = FIELD_COLORS.get(label.lower().rstrip(':'), Fore.WHITE)
+                    print(f"{color}{label}{Fore.RESET} {value}")
+
+def main():
+    parser = argparse.ArgumentParser(description="deadfetch – system info with ASCII logo", add_help=False)
+    parser.add_argument("--logo", metavar="DISTRO", help="Force a specific distribution logo")
+    parser.add_argument("--no-info", action="store_true", help="Print only the logo, no system info")
+    parser.add_argument("--help", action="help", help="Show this help message")
+    parser.add_argument("--version", action="version", version="deadfetch 3.1")
+    args = parser.parse_args()
+
+    if args.logo:
+        distro_key = args.logo.lower()
+        if distro_key not in ASCII_ART_MAP:
+            print(f"Unknown logo: {distro_key}")
+            sys.exit(1)
+    else:
+        distro_key = get_distro_key()
+        if distro_key not in ASCII_ART_MAP:
+            print(f"System not recognized: {distro_key}")
+            sys.exit(1)
+
+    info = SystemInfo() if not args.no_info else None
+    print_logo_and_info(info, distro_key, args.no_info)
+
+if __name__ == "__main__":
+    main()
